@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Headline } from '@bbc/psammead-headings';
 import pathOr from 'ramda/src/pathOr';
 import Paragraph from '@bbc/psammead-paragraph';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import ATIAnalytics from '../../containers/ATIAnalytics';
 import MetadataContainer from '../../containers/Metadata';
 import RadioScheduleContainer from '#containers/RadioSchedule';
@@ -27,6 +27,8 @@ const StyledGelPageGrid = styled(GelPageGrid)`
   width: 100%;
   flex-grow: 1; /* needed to ensure footer positions at bottom of viewport */
 `;
+
+const Anchor = styled.a``;
 
 const LiveRadioPage = ({ pageData }) => {
   const {
@@ -124,6 +126,9 @@ const LiveRadioPage = ({ pageData }) => {
           >
             {heading}
           </Headline>
+          <Anchor as={Link} to={`/${service}`}>
+            Link to home page
+          </Anchor>
           <Paragraph script={script} service={service}>
             {bodySummary}
           </Paragraph>
